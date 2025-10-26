@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIT Mesra Noida - MCA Placement 2024-26</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2d3748;
+            --accent: #3182ce;
+            --accent-light: #4299e1;
+            --light: #f7fafc;
+            --dark: #2d3748;
+            --gray: #718096;
+            --success: #38a169;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: #f8fafc;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            color: var(--primary);
+            padding: 15px 0;
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 12px;
+            text-align: center;
+            padding: 5px;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.4rem;
+            margin-bottom: 3px;
+            font-weight: 700;
+        }
+        
+        .logo-text p {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            font-weight: 500;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            padding: 8px 12px;
+            border-radius: 6px;
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--accent);
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        nav ul li a:hover:after {
+            width: 80%;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
+            color: white;
+            padding: 160px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L1000,0 L1000,1000 L0,1000 Z M0,0 C250,150 750,150 1000,0 L1000,1000 L0,1000 Z"></path></svg>');
+            background-size: cover;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            display: inline-block;
+            padding-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent), var(--accent-light));
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            font-size: 1.2rem;
+            color: var(--gray);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            color: var(--secondary);
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: var(--transition);
+        }
+        
+        .about-image:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        /* Vision Mission Section */
+        .vision-mission {
+            background-color: var(--light);
+        }
+        
+        .vm-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .vision, .mission {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .vision:before, .mission:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent), var(--accent-light));
+        }
+        
+        .vision:hover, .mission:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .vision h3, .mission h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .vision h3 i, .mission h3 i {
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+        
+        .mission ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .mission ul li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .mission ul li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* Rankings Section */
+        .ranking-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .ranking-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            width: 200px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ranking-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent), var(--accent-light));
+        }
+        
+        .ranking-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .ranking-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+        
+        .ranking-title {
+            font-size: 1.1rem;
+            color: var(--dark);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .ranking-source {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        /* Department Section */
+        .dept-info {
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            margin-bottom: 50px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .dept-info:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--accent), var(--accent-light));
+        }
+        
+        .dept-info h3 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        /* Students Section */
+        .batch-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            min-width: 180px;
+            transition: var(--transition);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+        
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 10px 24px;
+            background-color: white;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            box-shadow: var(--shadow);
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        .students-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .student-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .student-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .student-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .student-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            flex-shrink: 0;
+        }
+        
+        .student-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .student-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+        
+        .student-info p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+        
+        .student-body {
+            padding: 25px;
+        }
+        
+        .student-specialization {
+            display: inline-block;
+            background-color: var(--light);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .student-skills {
+            margin-bottom: 20px;
+        }
+        
+        .student-skills h4, .student-projects h4 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .skill-tag {
+            background-color: var(--light);
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .skill-tag:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        .student-projects ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .student-projects ul li {
+            margin-bottom: 10px;
+            padding-left: 22px;
+            position: relative;
+        }
+        
+        .student-projects ul li:before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        /* Recruiters Section */
+        .recruiters {
+            background-color: var(--light);
+        }
+        
+        .recruiters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 25px;
+        }
+        
+        .recruiter-logo {
+            background-color: white;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            font-weight: 600;
+            color: var(--primary);
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .recruiter-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            color: var(--accent);
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+        
+        .contact-info, .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-card {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .contact-card h3 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+        }
+        
+        .contact-details p {
+            margin-bottom: 18px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .contact-details i {
+            color: var(--accent);
+            width: 20px;
+            margin-top: 3px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: #f8fafc;
+        }
+        
+        .form-control:focus {
+            border-color: var(--accent);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+            background-color: white;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary), #2c5282);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent-light);
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .footer-col p, .footer-col a {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 12px;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-col a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+            color: white;
+            font-size: 1.1rem;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-light);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: var(--shadow-lg);
+                border-top: 1px solid #e2e8f0;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 15px;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .students-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 140px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .btn-container {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+            
+            .student-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo-text h1 {
+                font-size: 1.2rem;
+            }
+            
+            .ranking-card {
+                width: 100%;
+            }
+            
+            .stat-card {
+                min-width: 140px;
+                padding: 20px 15px;
+            }
+            
+            .stat-value {
+                font-size: 2rem;
+            }
+        }
+        .logo-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.logo-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.logo-fallback {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-text h1 {
+    font-size: 1.4rem;
+    margin-bottom: 3px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.logo-text p {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    font-weight: 500;
+    color: var(--gray);
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .logo-text h1 {
+        font-size: 1.2rem;
+    }
+    
+    .logo-img {
+        width: 40px;
+        height: 40px;
+    }
+}
+.contact-options {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.contact-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    background: var(--light);
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.contact-option:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.contact-option i {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-top: 5px;
+}
+
+.contact-option h4 {
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+.contact-option p {
+    color: var(--gray);
+    margin-bottom: 15px;
+}
+
+.email-btn {
+    background: linear-gradient(135deg, #ea4335, #d14836);
+}
+
+.whatsapp-btn {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+}
+
+.btn-outline:hover {
+    background: var(--accent);
+    color: white;
+}
+/* Modern Footer Copyright Styles */
+.copyright {
+    text-align: center;
+    padding-top: 40px;
+    margin-top: 30px;
+    position: relative;
+}
+
+.copyright:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-light), transparent);
+    border-radius: 2px;
+}
+
+.copyright p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+.copyright a {
+    color: var(--accent-light);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    position: relative;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: linear-gradient(135deg, transparent, rgba(66, 153, 225, 0.1));
+}
+
+.copyright a:hover {
+    color: white;
+    background: linear-gradient(135deg, rgba(66, 153, 225, 0.3), rgba(49, 130, 206, 0.2));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
+}
+
+.copyright a:before {
+    content: '👨‍💻';
+    margin-right: 4px;
+    font-size: 0.8em;
+}
+
+/* For mobile - single line layout */
+@media (max-width: 576px) {
+    .copyright p {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+<header>
+    <div class="container">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-img">
+                    <img src="/Assets/logo.png" alt="BIT Mesra Logo" onerror="this.style.display='none'; document.querySelector('.logo-fallback').style.display='flex';">
+                    <div class="logo-fallback">BIT</div>
+                </div>
+                <div class="logo-text">
+                    <h1>BIT Mesra Noida</h1>
+                    <p>MCA Placement Brochure 2024-2026</p>
+                </div>
+            </div>
+            <nav>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#vision-mission">Vision & Mission</a></li>
+                    <li><a href="#rankings">Rankings</a></li>
+                    <li><a href="#department">Department</a></li>
+                    <li><a href="#students">Students</a></li>
+                    <li><a href="#recruiters">Recruiters</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Shaping The Future of Technology</h1>
+                <p>Meet the next generation of innovators, problem-solvers, and technology leaders from BIT Mesra Noida's MCA program</p>
+                <div class="btn-container">
+                    <a href="#students" class="btn"><i class="fas fa-users"></i> Meet Our Students</a>
+                    <a href="#contact" class="btn btn-outline"><i class="fas fa-handshake"></i> Partner With Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About BIT Mesra</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Perched on the serene plateau of Ranchi, BIT Mesra is not merely an institution—it is a legacy. Founded in 1955 by the visionary industrialist Shri B.M. Birla, BIT Mesra stands as a citadel of excellence, a place where intellect, innovation, and integrity converge.</p>
+                    <p>For decades, BIT Mesra has been synonymous with rigor, resilience, and relevance. It is a pioneer among technical institutions in India, known for its global outlook and unwavering pursuit of knowledge.</p>
+                    <p>BIT Mesra Noida campus enjoys an advantageous position owing to its proximity to major industrial and IT hubs at Greater Noida, Gurugram, and Delhi. The campus was established in 1998 to meet the urgent need for an institution for diversified and advanced educational research, consultancy, and training in IT and Management technology in the Northern sector.</p>
+                </div>
+                <div class="about-image">
+                    <img src="/Assets/mesra.jpg" alt="BIT Mesra Campus">
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About BIT Noida</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Birla Institute of Technology has over the years extended its
+expertise and scope of knowledge beyond its main campus at Mesra
+to overcome modern challenges in the field of IT and allied
+technology with proficiency.</p>
+<p>The BIT Mesra Noida campus enjoys an advantageous position owing
+to its proximity to a major industrial and IT hub at Greater Noida,
+Gurugram, and Delhi. Strategically located near the border of Noida
+and Delhi, adjacent to many important industrial houses. The
+campus was established in 1998 after having felt the urgent need of
+an institution for diversified and advanced educational research,
+consultancy, and training of human resources in IT and Management
+technology in the Northern sector.</p>
+<p>Our state-of the-art facilities are at the intersection of learning and
+hands-on-experience, which equip students to deep dive into reallife work situations. From advanced labs with high-end servers to a
+wide gamut of print and digital learning resources in the library,
+students have the wherewithal at their disposal to engage in quality
+learning. Besides this, the campus is equipped with recreational and
+club facilities that aid in the holistic development of students,
+preparing them for the world of tomorrow</p>
+                </div>
+                <div class="about-image">
+                    <img src="/Assets/noida.jpeg" alt="BIT Noida Campus">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission Section -->
+    <section id="vision-mission" class="vision-mission">
+        <div class="container">
+            <div class="section-title">
+                <h2>Vision & Mission</h2>
+            </div>
+            <div class="vm-container">
+                <div class="vision">
+                    <h3><i class="fas fa-eye"></i> Vision</h3>
+                    <p>To become a globally recognized academic institution in consonance with the social, economic and ecological environment, striving continuously for excellence in education, research and technological service to the national needs.</p>
+                </div>
+                <div class="mission">
+                    <h3><i class="fas fa-bullseye"></i> Mission</h3>
+                    <ul>
+                        <li>To educate students at Undergraduate, Post Graduate, Doctoral and Post Doctoral levels to perform challenging engineering and managerial jobs in industry</li>
+                        <li>To provide excellent research and development facilities to take up Ph.D programmes and research projects</li>
+                        <li>To develop effective teaching and learning skills and state-of-the-art research potential of the faculty</li>
+                        <li>To build national capabilities in technology, education and research in emerging areas</li>
+                        <li>To provide excellent technological services to satisfy the requirements of the industry and overall academic needs of society</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rankings Section -->
+    <section id="rankings" class="rankings">
+        <div class="container">
+            <div class="section-title">
+                <h2>Rankings & Accolades</h2>
+            </div>
+            <div class="ranking-cards">
+                <div class="ranking-card">
+                    <div class="ranking-number">48</div>
+                    <div class="ranking-title">Engineering</div>
+                    <div class="ranking-source">India Today 2024</div>
+                </div>
+                <div class="ranking-card">
+                    <div class="ranking-number">32</div>
+                    <div class="ranking-title">Pharmacy</div>
+                    <div class="ranking-source">India Today 2024</div>
+                </div>
+                <div class="ranking-card">
+                    <div class="ranking-number">20</div>
+                    <div class="ranking-title">Architecture</div>
+                    <div class="ranking-source">India Today 2024</div>
+                </div>
+                <div class="ranking-card">
+                    <div class="ranking-number">1</div>
+                    <div class="ranking-title">Private Engineering</div>
+                    <div class="ranking-source">Outlook 2025</div>
+                </div>
+                <div class="ranking-card">
+                    <div class="ranking-number">113</div>
+                    <div class="ranking-title">Asia Rank</div>
+                    <div class="ranking-source">World University Rankings</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Department Section -->
+    <section id="department" class="department">
+        <div class="container">
+            <div class="section-title">
+                <h2>Department of Computer Science & Applications</h2>
+            </div>
+            <div class="dept-info">
+                <h3>Overview</h3>
+                <p>The Department of Computer Science and Applications endeavours to be an important regional, national, and international resource centre for the development of computing, IT systems and applications. The Department is recognized as one of the leading departments with infrastructure and facilities to match the very best in the country.</p>
+                <p>The department remains committed towards its mission, which is twofold. One is to provide students with the fundamental knowledge and problem solving skills in Computer Science required for a fulfilling career. The other goal is to create and disseminate knowledge to improve Computer Science research, education and practice.</p>
+            </div>
+            <div class="vm-container">
+                <div class="vision">
+                    <h3><i class="fas fa-eye"></i> Department Vision</h3>
+                    <p>The department strives to be recognized for outstanding education and research, leading to excellent professionals and innovators in the field of Computer Science and Engineering, who can positively contribute to the society.</p>
+                </div>
+                <div class="mission">
+                    <h3><i class="fas fa-bullseye"></i> Department Mission</h3>
+                    <ul>
+                        <li>To impart quality education and equip the students with strong foundation that could make them capable of handling challenges of the new century.</li>
+                        <li>To maintain state of the art research facilities and facilitate interaction with world's leading universities, industries and research organization for constant improvement in the quality of education and research.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Students Section -->
+    <section id="students" class="students">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Talented Students</h2>
+            </div>
+            
+            <div class="batch-stats">
+                <div class="stat-card">
+                    <div class="stat-value">76%</div>
+                    <div class="stat-label">Male Students</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">24%</div>
+                    <div class="stat-label">Female Students</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">84%</div>
+                    <div class="stat-label">Computer Applications</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">8%</div>
+                    <div class="stat-label">Computer Science</div>
+                </div>
+            </div>
+            
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All Students</button>
+                <button class="filter-btn" data-filter="computer-applications">Computer Applications</button>
+                <button class="filter-btn" data-filter="computer-science">Computer Science</button>
+                <button class="filter-btn" data-filter="it">IT</button>
+                <button class="filter-btn" data-filter="physics">Physics</button>
+            </div>
+            
+            <div class="students-grid">
+                <!-- Student cards will be dynamically generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Recruiters Section -->
+    <section id="recruiters" class="recruiters">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Esteemed Recruiters</h2>
+            </div>
+            <div class="recruiters-grid">
+                <div class="recruiter-logo">Froyo Technologies</div>
+                <div class="recruiter-logo">Zscaler</div>
+                <div class="recruiter-logo">NyKinSky & Company</div>
+                <div class="recruiter-logo">Credex Technology</div>
+                <div class="recruiter-logo">ADROSONIC</div>
+                <div class="recruiter-logo">BENTH N</div>
+                <div class="recruiter-logo">Optimus Information</div>
+                <div class="recruiter-logo">Gesera</div>
+                <div class="recruiter-logo">SIMPPLR</div>
+                <div class="recruiter-logo">KodNest</div>
+                <div class="recruiter-logo">Tanaashi</div>
+                <div class="recruiter-logo">RoboMQ</div>
+                <div class="recruiter-logo">Jellyfish Technologies</div>
+                <div class="recruiter-logo">NYT Interactive</div>
+                <div class="recruiter-logo">Hashed in by Deloitte</div>
+                <div class="recruiter-logo">HaleForm</div>
+                <div class="recruiter-logo">Incture</div>
+                <div class="recruiter-logo">GraceCity</div>
+                <div class="recruiter-logo">InsightGeeks</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3><i class="fas fa-university"></i> BIT Noida Campus</h3>
+                        <div class="contact-details">
+                            <p><i class="fas fa-map-marker-alt"></i> A-7, Sector 1, Noida, Uttar Pradesh 201301</p>
+                            <p><i class="fas fa-phone"></i> +91 98719 42670</p>
+                            <p><i class="fas fa-envelope"></i> tponoida@bitmesra.ac.in</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <h3><i class="fas fa-users"></i> Placement Coordinators</h3>
+                        <div class="contact-details">
+                            <p><i class="fas fa-user"></i> Shashwat Kashyap</p>
+                            <p><i class="fas fa-envelope"></i> mca45009.24@bitmesra.ac.in</p>
+                            <p><i class="fas fa-phone"></i> +91 98183 83499</p>
+                            <br>
+                            <p><i class="fas fa-user"></i> Yash Gupta</p>
+                            <p><i class="fas fa-envelope"></i> mca45007.24@bitmesra.ac.in</p>
+                            <p><i class="fas fa-phone"></i> +91 88821 93214</p>
+                            <br>
+                            <p><i class="fas fa-user"></i> Rupen Kumar</p>
+                            <p><i class="fas fa-envelope"></i> mca45003.24@bitmesra.ac.in</p>
+                            <p><i class="fas fa-phone"></i> +91 96549 45330</p>
+                        </div>
+                    </div>
+                </div>
+    <div class="contact-card">
+        <h3><i class="fas fa-paper-plane"></i> Get In Touch</h3>
+        <div class="contact-options">
+            <div class="contact-option">
+                <i class="fas fa-envelope"></i>
+                <br>
+                <div>
+                    <h4>Email Us Directly</h4>
+                    <p>Send us an email and we'll respond within 24 hours</p>
+                    <a href="mailto:tponoida@bitmesra.ac.in?subject=Placement Inquiry - BIT Mesra Noida&body=Hello BIT Mesra Placement Team," class="btn email-btn">
+                        <i class="fas fa-paper-plane"></i> Send Email
+                    </a>
+                </div>
+            </div>
+            <br>
+            <div class="contact-option">
+                <i class="fas fa-phone"></i>
+                <div>
+                    <h4>Call Us</h4>
+                    <p>Speak directly with our placement team</p>
+                    <a href="tel:+91 98719 42670" class="btn btn-outline">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                </div>
+            </div>
+            <br>
+            
+            <div class="contact-option">
+                <i class="fab fa-whatsapp"></i>
+                <div>
+                    <h4>WhatsApp</h4>
+                    <p>Message us on WhatsApp for quick responses</p>
+                    <a href="https://wa.me/919871942670?text=Hello%20BIT%20Mesra%20Placement%20Team" class="btn whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Message on WhatsApp
+                    </a>
+                </div>
+            </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>BIT Mesra Noida</h3>
+                    <p>Birla Institute of Technology, Mesra Noida Campus is a premier technical institution dedicated to excellence in education, research, and innovation.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/1GixgUhhHh/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/bitnoidacampus"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/company/bit-noida-campus/posts/?feedView=all"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/bitnoidacampus?igsh=MWJ5Ynd4eHZ5ODliNg=="><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <a href="#about">About Us</a>
+                    <a href="#vision-mission">Vision & Mission</a>
+                    <a href="#department">Department</a>
+                    <a href="#students">Students</a>
+                    <a href="#recruiters">Recruiters</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> A-7, Sector 1, Noida, UP 201301</p>
+                    <p><i class="fas fa-phone"></i> +91 98719 42670</p>
+                    <p><i class="fas fa-envelope"></i> tponoida@bitmesra.ac.in</p>
+                </div>
+            </div>
+            <div class="copyright">
+<p>&copy; 2025 Birla Institute of Technology, Mesra - Noida Campus. All Rights Reserved. Made by <a href="https://www.linkedin.com/in/shashwat-kashyap-b417aa155/">Shashwat Kashyap</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Student Data with all details from brochure
+        const students = [
+            {
+                name: "Anshika Gupta",
+                course: "Bachelor Of Science (Bsc.)",
+                specialization: "Computer Science",
+                skills: ["Python", "Java", "HTML", "CSS", "JavaScript", "SQL", "DSA", "C++", "Php(Basic)"],
+                projects: ["TIC-TAC-TOE Game", "Responsive Portfolio website"],
+                avatar: "/Assets/032.jpg"
+            },
+            {
+                name: "Sourabh Sharma",
+                course: "BCA",
+                specialization: "Computer Applications",
+                skills: ["C++", "SQL", "HTML Responsive Design", "Layout Design", "CSS", "JAVA", "C"],
+                projects: ["Food Ordering Website"],
+                avatar: "/Assets/068.jpg"
+            },
+            {
+                name: "Rupen Kumar",
+                course: "BCA",
+                specialization: "Computer Applications",
+                skills: ["Web Development( Nextjs, Vercel, Supabase / Firebase )", "Python", "Java", "Springboot"],
+                projects: ["Mood-tracker", "2D Platformer Game", "Linudio - AI Voiceover and Transcriptor"],
+                avatar: "/Assets/034.jpg"
+            },
+            {
+                name: "Aditi Jaiswal",
+                course: "BCA",
+                specialization: "Computer Applications",
+                skills: ["Java", "C", "data analytics using python and database", ".Net framework", "HTML", "CSS", "JavaScript", "C#", "SQL"],
+                projects: ["Gesture based game controller", "Asset management system"],
+                avatar: "/Assets/033.jpg"
+            },
+            {
+                name: "Shekhar Ranjan",
+                course: "Bsc. CS H",
+                specialization: "Computer Science",
+                skills: ["Python", "Java", "C", "MySQL", "HTML", "CSS", "Javascript", "Data Structures and Algorithms", "Operating Systems", "Database Management System"],
+                projects: ["Sorting Visualizer", "Banking Management System"],
+                avatar: "/Assets/035.jpg"
+            },
+            {
+                name: "Yash Gupta",
+                course: "BCA",
+                specialization: "Computer Applications",
+                skills: ["HTML", "CSS", "JavaScript", "Php", "MySQL", "Canva", "Python", "Ms-Office", "Google Sites"],
+                projects: ["Al Voice Assistant", "Furniture Website", "Design (Various Logos, Posters, Business Cards & More)"],
+                avatar: "/Assets/036.jpg"
+            },
+            {
+                name: "Himanshu Tripathi",
+                course: "BCA",
+                specialization: "Computer Applications",
+                skills: ["Programming & Data: Python, C, C++, Java, SQL", "Data Science & ML: Data Analysis, Data Cleaning, Feature Engineering, Model Building, Machine Learning, Deep Learning", "Visualization & BI: Power BI, Tableau, Matplotlib, Seaborn, Excel", "Other Skills: Prompt Engineering, Communication, Team Leadership, Presentation Design"],
+                projects: ["Iris Flower Classification", "Next Word Prediction", "Handwritten Digit Recognition", "Image-to-Pencil Sketch Conversion", "Dynamic Business Dashboards", "Quantum Gates Simulator"],
+                avatar: "/Assets/037.jpg"
+            },
+            {
+                name: "Shashwat Kashyap",
+                course: "BCA",
+                specialization: "Computer Applications",
+                skills: ["Python", "Java", "JavaScript", "C", "MERN Stack", "Full Stack Development", "Exploratory Data Analysis", "PowerBI", "Google Sites", "Streamlit", "SEO", "MySQL", "Figma", "Canva", "Sentiment Analysis", "NLP", "Render", "Vercel", "Git", "Research Paper Writing"],
+                projects: ["Alumni-Connect application", "virtual assistance for windows(ALFRED)", "SkyVault: File Sharing Application (Deployed)", "ERP system", "Sales analysis", "Official Website for a Service Based IT Firm", "Official Intranet for an Architecture firm", "Menstrual Hygiene Awareness and tracker Application", "F1 ORACLE: 2025 Race Prediction site using Python and streamlit (Deployed)", "personal portfolio Website in React.js, Node.js, Express.js (Deployed)", "TEDX Event Website (Deployed)", "EV Stats monitoring and anomaly detection (Python, Deployed)", "Personal portfolios for Software Developers (3, Deployed)", "Techwiz Website (Deployed)", "International conference Website (Deployed)"],
+                avatar: "/Assets/photo.jpg"
+            },
+            {
+                name: "Rakshita Jain",
+                course: "BCA",
+                specialization: "Computer Applications",
+                skills: ["HTML", "CSS", "Java Script", "Sql", "Php", "Java", "C Programming"],
+                projects: ["Note taking App", "encryption and decryption"],
+                avatar: "/Assets/040.jpg"
+            },
+            {
+                name: "Harshit Vergadia",
+                course: "BCA",
+                specialization: "Computer Applications",
+                skills: ["HTML", "Teamwork", "Leadership", "CSS", "C++", "C", "JAVA", "SQL", "Data Visualization (Seaborn, Power BI)"],
+                projects: ["Group_web chat"],
+                avatar: "/Assets/043.jpg"
+            },
+            {
+                name: "Suryanshu Kumar",
+                course: "BCA",
+                specialization: "Computer Applications",
+                skills: ["MS Word", "MS Excel", "MS PowerPoint", "SQL", "DSA", "PowerBI"],
+                projects: ["Squad Syncer - Using MERN stack"],
+                avatar: "/Assets/047.jpg"
+            },
+            {
+                name: "Shubha Jha",
+                course: "BCA",
+                specialization: "Computer Applications",
+                skills: ["HTML", "CSS", "SQL", "javascript", "C"],
+                projects: ["Only Viewers(YouTube and Netflix clone)"],
+                avatar: "/Assets/044.jpg"
+            },
+            {
+                name: "Asmit Akarsh",
+                course: "BCA",
+                specialization: "Computer Applications",
+                skills: ["C", "Java", "Python", "html", "css", "javascript", "node.js", "express.js", "MySQL", "SQLite", "Data structure & Algorithms", "Software Engineering & Testing", "Web Development", "Android Application Development", "Artificial intelligence"],
+                projects: ["An Android Application", "Password Manager", "BMI Calculator", "Quiz App(static)", "Web Browser with a custom search engine"],
+                avatar: "/Assets/066.jpg"
+            },
+            {
+                name: "Suryanshi Rajput",
+                course: "Bsc.CS",
+                specialization: "Computer Applications",
+                skills: ["Python", "HTML", "CSS", "Php", "Java", "C", "Machine Learning", "Problem-Solving", "Team Collaboration"],
+                projects: ["Zomato Data Analysis Project"],
+                avatar: "/Assets/046.jpg"
+            },
+            {
+                name: "Abhinay Chauhan",
+                course: "BCA",
+                specialization: "Computer Applications",
+                skills: ["C++", "SQL", "HTML", "Responsive Design", "Layout Design", "CSS", "Java", "C"],
+                projects: ["Entry check system"],
+                avatar: "/Assets/049.jpg"
+            },
+            {
+                name: "Ankit Parmar",
+                course: "BCA",
+                specialization: "Computer Applications",
+                skills: ["Html", "CSS", "JavaScript", "React.js", "Mongodb", "Node.js", "Express.js", "Java"],
+                projects: ["Note application"],
+                avatar: "/Assets/057.jpg"
+            },
+            {
+                name: "Uttam Solanki",
+                course: "BCA",
+                specialization: "Computer Applications",
+                skills: ["Python", "HTML", "CSS", "Php", "Java", "C", "Machine Learning", "Full-Stack", "Artificial Intelligence"],
+                projects: ["Student Attendance System"],
+                avatar: "/Assets/054.jpg"
+            },
+            {
+                name: "Shambhavi",
+                course: "BCA",
+                specialization: "Computer Applications",
+                skills: ["HTML", "CSS", "Javascript", "Bootstrap", "React", "Python", "SQLPlus", "MySQL", "PowerBi", "Tableau", "Excel", "Figma", "Canva", "Team Collaboration", "Quick Learner", "Adaptability"],
+                projects: ["An OCR Based Web Application: EYETECH"],
+                avatar: "/Assets/055.jpg"
+            },
+            {
+                name: "Shivam Kumar Singh",
+                course: "BCA",
+                specialization: "Computer Applications",
+                skills: ["HTML", "CSS", "JavaScript", "ReactJS", "Node.js", "MongoDB", "Express.js", "Java", "Python", "Machine Learning", "SQL", "Firebase", "REST APIs", "Git", "Postman", "Figma"],
+                projects: ["Menstrual Hygiene Tracker App", "Coaching Website", "Villa Sale Website", "Research Scholar Portfolio", "Credit Card Fraud Detection"],
+                avatar: "/Assets/059.jpg"
+            },
+            {
+                name: "Aryan Gurjar",
+                course: "BCA",
+                specialization: "Computer Applications",
+                skills: ["Java", "Spring Boot", "JPA", "SQL", "DSA", "eclipse", "Statistics", "DBMS"],
+                projects: ["Console Based Chat Application"],
+                avatar: "/Assets/061.jpg"
+            },
+            {
+                name: "Gangeshwar Rana",
+                course: "Bsc. Phy",
+                specialization: "Physics",
+                skills: ["HTML", "CSS (Bootstrap)", "JavaScript (React, Angular)", "PHP", "MySQL", "SQL", "Python", "Java", "Automata theory", "DSA", "Analysis of Algorithms", "MS Office", "Canva"],
+                projects: ["Student website login page", "Netflix clone", "E-Commerce", "Chat App", "Stopwatch", "Sudoku Solver", "Server-Client website"],
+                avatar: "/Assets/051.jpg"
+            },
+            {
+                name: "Shivam Prasad",
+                course: "Bsc. IT",
+                specialization: "IT",
+                skills: ["Python", "Java", "JavaScript", "C", "C++", "MERN Stack", "Full Stack Development", "MySQL", "AI", "ML"],
+                projects: ["Building clones of websites like LinkedIn and Github", "Artificial Intelligence : Image Classification", "Restaurant idea generator"],
+                avatar: "/Assets/064.jpg"
+            }
+        ];
+
+        // Render Students
+        const studentsGrid = document.querySelector('.students-grid');
+        
+        function renderStudents(filter = 'all') {
+            studentsGrid.innerHTML = '';
+            
+            students.forEach(student => {
+                if (filter === 'all' || student.specialization.toLowerCase().includes(filter.replace('-', ' '))) {
+                    const studentCard = document.createElement('div');
+                    studentCard.className = 'student-card';
+                    
+                    studentCard.innerHTML = `
+                        <div class="student-header">
+                            <div class="student-avatar">
+                                <img src="${student.avatar}" alt="${student.name}">
+                            </div>
+                            <div class="student-info">
+                                <h3>${student.name}</h3>
+                                <p>${student.course}</p>
+                            </div>
+                        </div>
+                        <div class="student-body">
+                            <div class="student-specialization">${student.specialization}</div>
+                            <div class="student-skills">
+                                <h4><i class="fas fa-code"></i> Skills</h4>
+                                <div class="skills-list">
+                                    ${Array.isArray(student.skills) 
+                                        ? student.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('') 
+                                        : `<span class="skill-tag">${student.skills}</span>`}
+                                </div>
+                            </div>
+                            <div class="student-projects">
+                                <h4><i class="fas fa-project-diagram"></i> Projects</h4>
+                                <ul>
+                                    ${Array.isArray(student.projects) 
+                                        ? student.projects.map(project => `<li>${project}</li>`).join('') 
+                                        : `<li>${student.projects}</li>`}
+                                </ul>
+                            </div>
+                        </div>
+                    `;
+                    
+                    studentsGrid.appendChild(studentCard);
+                }
+            });
+        }
+
+        // Initial render
+        renderStudents();
+
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Get filter value
+                const filter = this.getAttribute('data-filter');
+                
+                // Render students with filter
+                renderStudents(filter);
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a, .btn').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                document.querySelector('header').style.background = 'rgba(255, 255, 255, 0.98)';
+                document.querySelector('header').style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                document.querySelector('header').style.background = 'rgba(255, 255, 255, 0.95)';
+                document.querySelector('header').style.boxShadow = 'var(--shadow)';
+            }
+        });
+    </script>
+</body>
+</html>
