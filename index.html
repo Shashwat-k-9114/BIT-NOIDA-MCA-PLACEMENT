@@ -1118,6 +1118,219 @@
         gap: 4px;
     }
 }
+    /* Placement Records Section Styles */
+    .placements {
+        background-color: #f8fafc;
+        padding: 100px 0;
+    }
+    
+    .placement-summary {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 50px;
+        flex-wrap: wrap;
+    }
+    
+    .summary-card {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        text-align: center;
+        min-width: 150px;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+    }
+    
+    .summary-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+    }
+    
+    .summary-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--accent);
+        margin-bottom: 10px;
+        line-height: 1;
+    }
+    
+    .summary-label {
+        color: var(--gray);
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    
+    /* Placement Records Grid */
+    .placement-records {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 25px;
+        margin-bottom: 40px;
+    }
+    
+    .placement-record {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        border-left: 4px solid var(--accent);
+    }
+    
+    .placement-record:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+    }
+    
+    .record-header {
+        padding: 25px;
+        background: linear-gradient(135deg, var(--light), #ffffff);
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        border-bottom: 1px solid #e2e8f0;
+    }
+    
+    .student-photo {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 3px solid white;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        flex-shrink: 0;
+    }
+    
+    .student-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .student-info h3 {
+        color: var(--primary);
+        margin-bottom: 5px;
+        font-size: 1.3rem;
+    }
+    
+    .roll-no {
+        color: var(--gray);
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+    
+    .record-details {
+        padding: 25px;
+    }
+    
+    .detail-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #f1f5f9;
+    }
+    
+    .detail-item:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+    
+    .detail-label {
+        color: var(--gray);
+        font-weight: 500;
+        font-size: 0.95rem;
+        min-width: 80px;
+    }
+    
+    .detail-value {
+        color: var(--dark);
+        font-weight: 600;
+        text-align: right;
+        flex: 1;
+        padding-left: 10px;
+    }
+    
+    .detail-value.highlight {
+        color: var(--success);
+        font-size: 1.1rem;
+    }
+    
+    /* Badges */
+    .badge {
+        display: inline-block;
+        padding: 5px 12px;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+    
+    .badge.internship {
+        background-color: rgba(49, 130, 206, 0.1);
+        color: var(--accent);
+        border: 1px solid var(--accent);
+    }
+    
+    .badge.fulltime {
+        background-color: rgba(56, 161, 105, 0.1);
+        color: var(--success);
+        border: 1px solid var(--success);
+    }
+    
+    .placement-note {
+        text-align: center;
+        padding: 20px;
+        background: var(--light);
+        border-radius: 10px;
+        color: var(--gray);
+        font-size: 0.95rem;
+    }
+    
+    .placement-note i {
+        color: var(--accent);
+        margin-right: 10px;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .placement-records {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+        
+        .record-header {
+            flex-direction: column;
+            text-align: center;
+            gap: 15px;
+        }
+        
+        .detail-item {
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .detail-label, .detail-value {
+            text-align: left;
+            width: 100%;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .placement-records {
+            grid-template-columns: 1fr;
+        }
+        
+        .summary-card {
+            min-width: 120px;
+            padding: 20px;
+        }
+        
+        .summary-number {
+            font-size: 2rem;
+        }
+    }
     </style>
 </head>
 <body>
@@ -1145,6 +1358,7 @@
                     <li><a href="#rankings">Rankings</a></li>
                     <li><a href="#department">Department</a></li>
                     <li><a href="#students">Students</a></li>
+                    <li><a href="#placements">Placements</a></li>
                     <li><a href="#recruiters">Recruiters</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -1348,6 +1562,744 @@ preparing them for the world of tomorrow</p>
             </div>
         </div>
     </section>
+
+    <!-- Placement Records Section -->
+<section id="placements" class="placements">
+    <div class="container">
+        <div class="section-title">
+            <h2>Placement Records 2024-2025</h2>
+        </div>
+        <div class="section-subtitle">
+            <p>Our students have successfully secured positions at top companies</p>
+        </div>
+        
+        <!-- Placement Summary Stats -->
+        <div class="placement-summary">
+            <div class="summary-card">
+                <div class="summary-number">20</div>
+                <div class="summary-label">Total Placements</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-number">9</div>
+                <div class="summary-label">Companies</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-number">₹15K</div>
+                <div class="summary-label">Avg. Stipend</div>
+            </div>
+        </div>
+        
+        <!-- Placement Records Grid - ALL 20 RECORDS -->
+        <div class="placement-records">
+            
+            <!-- Record 1 -->
+            <div class="placement-record">
+                <div class="record-header">
+                    <div class="student-photo">
+                        <img src="/Assets/photo.jpg" alt="Shashwat Kashyap">
+                    </div>
+                    <div class="student-info">
+                        <h3>Shashwat Kashyap</h3>
+                        <p class="roll-no">MCA/45009/24</p>
+                    </div>
+                </div>
+                <div class="record-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Company:</span>
+                        <span class="detail-value">AA2IT</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Position:</span>
+                        <span class="detail-value">SalesForce Developer</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Type:</span>
+                        <span class="detail-value badge internship">Internship</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Duration:</span>
+                        <span class="detail-value">6 Months</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Stipend:</span>
+                        <span class="detail-value highlight">₹15,000/month</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Record 2 -->
+            <div class="placement-record">
+                <div class="record-header">
+                    <div class="student-photo">
+                        <img src="/Assets/035.jpg" alt="Shekhar Ranjan">
+                    </div>
+                    <div class="student-info">
+                        <h3>Shekhar Ranjan</h3>
+                        <p class="roll-no">MCA/45005/24</p>
+                    </div>
+                </div>
+                <div class="record-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Company:</span>
+                        <span class="detail-value">AA2IT</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Position:</span>
+                        <span class="detail-value">SalesForce Developer</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Type:</span>
+                        <span class="detail-value badge internship">Internship</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Duration:</span>
+                        <span class="detail-value">6 Months</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Stipend:</span>
+                        <span class="detail-value highlight">₹15,000/month</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Record 3 -->
+            <div class="placement-record">
+                <div class="record-header">
+                    <div class="student-photo">
+                        <img src="/Assets/064.jpg" alt="Shivam Prasad">
+                    </div>
+                    <div class="student-info">
+                        <h3>Shivam Prasad</h3>
+                        <p class="roll-no">MCA/45025/25</p>
+                    </div>
+                </div>
+                <div class="record-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Company:</span>
+                        <span class="detail-value">AA2IT</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Position:</span>
+                        <span class="detail-value">SalesForce Developer</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Type:</span>
+                        <span class="detail-value badge internship">Internship</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Duration:</span>
+                        <span class="detail-value">6 Months</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Stipend:</span>
+                        <span class="detail-value highlight">₹15,000/month</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Record 4 -->
+            <div class="placement-record">
+                <div class="record-header">
+                    <div class="student-photo">
+                        <img src="/Assets/066.jpg" alt="Asmit Akarsh">
+                    </div>
+                    <div class="student-info">
+                        <h3>Asmit Akarsh</h3>
+                        <p class="roll-no">MCA/45026/26</p>
+                    </div>
+                </div>
+                <div class="record-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Company:</span>
+                        <span class="detail-value">AA2IT</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Position:</span>
+                        <span class="detail-value">SalesForce Developer</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Type:</span>
+                        <span class="detail-value badge internship">Internship</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Duration:</span>
+                        <span class="detail-value">6 Months</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Stipend:</span>
+                        <span class="detail-value highlight">₹15,000/month</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Record 5 -->
+            <div class="placement-record">
+                <div class="record-header">
+                    <div class="student-photo">
+                        <img src="/Assets/035.jpg" alt="Shekhar Ranjan">
+                    </div>
+                    <div class="student-info">
+                        <h3>Shekhar Ranjan</h3>
+                        <p class="roll-no">MCA/45005/24</p>
+                    </div>
+                </div>
+                <div class="record-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Company:</span>
+                        <span class="detail-value">Accenture</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Position:</span>
+                        <span class="detail-value">Advanced Associate Software Engineer</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Type:</span>
+                        <span class="detail-value badge fulltime">Full Time</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Duration:</span>
+                        <span class="detail-value">Permanent</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Package:</span>
+                        <span class="detail-value highlight">6.5 LPA</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Record 6 -->
+            <div class="placement-record">
+                <div class="record-header">
+                    <div class="student-photo">
+                        <img src="/Assets/061.jpg" alt="Aryan Gurjar">
+                    </div>
+                    <div class="student-info">
+                        <h3>Aryan Gurjar</h3>
+                        <p class="roll-no">MCA/45023/24</p>
+                    </div>
+                </div>
+                <div class="record-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Company:</span>
+                        <span class="detail-value">Accenture</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Position:</span>
+                        <span class="detail-value">Advanced Associate Software Engineer</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Type:</span>
+                        <span class="detail-value badge fulltime">Full Time</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Duration:</span>
+                        <span class="detail-value">Permanent</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Package:</span>
+                        <span class="detail-value highlight">5.9 LPA</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Record 7 -->
+            <div class="placement-record">
+                <div class="record-header">
+                    <div class="student-photo">
+                        <img src="/Assets/036.jpg" alt="Yash Gupta">
+                    </div>
+                    <div class="student-info">
+                        <h3>Yash Gupta</h3>
+                        <p class="roll-no">MCA/45007/21</p>
+                    </div>
+                </div>
+                <div class="record-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Company:</span>
+                        <span class="detail-value">Muni EduCare</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Position:</span>
+                        <span class="detail-value">Digital Marketing</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Type:</span>
+                        <span class="detail-value badge internship">Internship</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Duration:</span>
+                        <span class="detail-value">6 Months</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Stipend:</span>
+                        <span class="detail-value highlight">₹15,000/month</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Record 8 -->
+            <div class="placement-record">
+                <div class="record-header">
+                    <div class="student-photo">
+                        <img src="/Assets/044.jpg" alt="Shubha Jha">
+                    </div>
+                    <div class="student-info">
+                        <h3>Shubha Jha</h3>
+                        <p class="roll-no">MCA/45014/22</p>
+                    </div>
+                </div>
+                <div class="record-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Company:</span>
+                        <span class="detail-value">Arka Fintech</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Position:</span>
+                        <span class="detail-value">Digital Marketing</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Type:</span>
+                        <span class="detail-value badge internship">Internship</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Duration:</span>
+                        <span class="detail-value">6 Months</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Stipend:</span>
+                        <span class="detail-value highlight">₹15,000/month</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Record 9 -->
+            <div class="placement-record">
+                <div class="record-header">
+                    <div class="student-photo">
+                        <img src="/Assets/051.jpg" alt="Gangeshwar Rana">
+                    </div>
+                    <div class="student-info">
+                        <h3>Gangeshwar Rana</h3>
+                        <p class="roll-no">MCA/45024/23</p>
+                    </div>
+                </div>
+                <div class="record-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Company:</span>
+                        <span class="detail-value">Muni EduCare</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Position:</span>
+                        <span class="detail-value">Digital Marketing</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Type:</span>
+                        <span class="detail-value badge internship">Internship</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Duration:</span>
+                        <span class="detail-value">6 Months</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Stipend:</span>
+                        <span class="detail-value highlight">₹15,000/month</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Record 10 -->
+            <div class="placement-record">
+                <div class="record-header">
+                    <div class="student-photo">
+                        <img src="/Assets/047.jpg" alt="Suryanshu Srivastava">
+                    </div>
+                    <div class="student-info">
+                        <h3>Suryanshu Srivastava</h3>
+                        <p class="roll-no">MCA/45013/24</p>
+                    </div>
+                </div>
+                <div class="record-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Company:</span>
+                        <span class="detail-value">Muni EduCare</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Position:</span>
+                        <span class="detail-value">Digital Marketing</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Type:</span>
+                        <span class="detail-value badge internship">Internship</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Duration:</span>
+                        <span class="detail-value">6 Months</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Stipend:</span>
+                        <span class="detail-value highlight">₹15,000/month</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Record 11 -->
+            <div class="placement-record">
+                <div class="record-header">
+                    <div class="student-photo">
+                        <img src="/Assets/068.jpg" alt="Sourabh Sharma">
+                    </div>
+                    <div class="student-info">
+                        <h3>Sourabh Sharma</h3>
+                        <p class="roll-no">MCA/45002/24</p>
+                    </div>
+                </div>
+                <div class="record-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Company:</span>
+                        <span class="detail-value">Manacle Technologies</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Position:</span>
+                        <span class="detail-value">PHP Developer</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Type:</span>
+                        <span class="detail-value badge internship">Internship</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Duration:</span>
+                        <span class="detail-value">4 Months</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Stipend:</span>
+                        <span class="detail-value highlight">₹10,000/month</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Record 12 -->
+            <div class="placement-record">
+                <div class="record-header">
+                    <div class="student-photo">
+                        <img src="/Assets/046.jpg" alt="Suryanshi Rajput">
+                    </div>
+                    <div class="student-info">
+                        <h3>Suryanshi Rajput</h3>
+                        <p class="roll-no">MCA/45016/24</p>
+                    </div>
+                </div>
+                <div class="record-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Company:</span>
+                        <span class="detail-value">Manacle Technologies</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Position:</span>
+                        <span class="detail-value">PHP Developer</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Type:</span>
+                        <span class="detail-value badge internship">Internship</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Duration:</span>
+                        <span class="detail-value">4 Months</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Stipend:</span>
+                        <span class="detail-value highlight">₹10,000/month</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Record 13 -->
+            <div class="placement-record">
+                <div class="record-header">
+                    <div class="student-photo">
+                        <img src="/Assets/034.jpg" alt="Rupen Kumar">
+                    </div>
+                    <div class="student-info">
+                        <h3>Rupen Kumar</h3>
+                        <p class="roll-no">MCA/45003/24</p>
+                    </div>
+                </div>
+                <div class="record-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Company:</span>
+                        <span class="detail-value">Manacle Technologies</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Position:</span>
+                        <span class="detail-value">Python Developer</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Type:</span>
+                        <span class="detail-value badge internship">Internship</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Duration:</span>
+                        <span class="detail-value">4 Months</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Stipend:</span>
+                        <span class="detail-value highlight">₹12,000/month</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Record 14 -->
+            <div class="placement-record">
+                <div class="record-header">
+                    <div class="student-photo">
+                        <img src="/Assets/061.jpg" alt="Aryan Gurjar">
+                    </div>
+                    <div class="student-info">
+                        <h3>Aryan Gurjar</h3>
+                        <p class="roll-no">MCA/45023/24</p>
+                    </div>
+                </div>
+                <div class="record-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Company:</span>
+                        <span class="detail-value">PE Front Office</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Position:</span>
+                        <span class="detail-value">PHP, CRM Developer</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Type:</span>
+                        <span class="detail-value badge internship">Internship</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Duration:</span>
+                        <span class="detail-value">4 Months</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Stipend:</span>
+                        <span class="detail-value highlight">₹15,000/month</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Record 15 -->
+            <div class="placement-record">
+                <div class="record-header">
+                    <div class="student-photo">
+                        <img src="/Assets/057.jpg" alt="Ankit Parmar">
+                    </div>
+                    <div class="student-info">
+                        <h3>Ankit Parmar</h3>
+                        <p class="roll-no">MCA/45019/24</p>
+                    </div>
+                </div>
+                <div class="record-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Company:</span>
+                        <span class="detail-value">PE Front Office</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Position:</span>
+                        <span class="detail-value">PHP, CRM Developer</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Type:</span>
+                        <span class="detail-value badge internship">Internship</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Duration:</span>
+                        <span class="detail-value">4 Months</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Stipend:</span>
+                        <span class="detail-value highlight">₹15,000/month</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Record 16 -->
+            <div class="placement-record">
+                <div class="record-header">
+                    <div class="student-photo">
+                        <img src="/Assets/photo.jpg" alt="Shashwat Kashyap">
+                    </div>
+                    <div class="student-info">
+                        <h3>Shashwat Kashyap</h3>
+                        <p class="roll-no">MCA/45009/24</p>
+                    </div>
+                </div>
+                <div class="record-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Company:</span>
+                        <span class="detail-value">PE Front Office</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Position:</span>
+                        <span class="detail-value">PHP, CRM Developer and Project Lead</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Type:</span>
+                        <span class="detail-value badge internship">Internship</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Duration:</span>
+                        <span class="detail-value">4 Months</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Stipend:</span>
+                        <span class="detail-value highlight">₹15,000/month</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Record 17 -->
+            <div class="placement-record">
+                <div class="record-header">
+                    <div class="student-photo">
+                        <img src="/Assets/photo.jpg" alt="Shashwat Kashyap">
+                    </div>
+                    <div class="student-info">
+                        <h3>Shashwat Kashyap</h3>
+                        <p class="roll-no">MCA/45009/24</p>
+                    </div>
+                </div>
+                <div class="record-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Company:</span>
+                        <span class="detail-value">Prustaz</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Position:</span>
+                        <span class="detail-value">Full Stack Developer</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Type:</span>
+                        <span class="detail-value badge internship">Internship</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Duration:</span>
+                        <span class="detail-value">3 Months</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Stipend:</span>
+                        <span class="detail-value highlight">₹5,000/month</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Record 18 -->
+            <div class="placement-record">
+                <div class="record-header">
+                    <div class="student-photo">
+                        <img src="/Assets/057.jpg" alt="Ankit Parmar">
+                    </div>
+                    <div class="student-info">
+                        <h3>Ankit Parmar</h3>
+                        <p class="roll-no">MCA/45019/24</p>
+                    </div>
+                </div>
+                <div class="record-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Company:</span>
+                        <span class="detail-value">InternsElite</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Position:</span>
+                        <span class="detail-value">Business Development Executive</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Type:</span>
+                        <span class="detail-value badge internship">Internship</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Duration:</span>
+                        <span class="detail-value">6 Months</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Stipend:</span>
+                        <span class="detail-value highlight">₹15,000/month</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Record 19 -->
+            <div class="placement-record">
+                <div class="record-header">
+                    <div class="student-photo">
+                        <img src="/Assets/040.jpg" alt="Rakshita Jain">
+                    </div>
+                    <div class="student-info">
+                        <h3>Rakshita Jain</h3>
+                        <p class="roll-no">MCA/45010/24</p>
+                    </div>
+                </div>
+                <div class="record-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Company:</span>
+                        <span class="detail-value">InternsElite</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Position:</span>
+                        <span class="detail-value">Business Development Executive</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Type:</span>
+                        <span class="detail-value badge internship">Internship</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Duration:</span>
+                        <span class="detail-value">6 Months</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Stipend:</span>
+                        <span class="detail-value highlight">₹15,000/month</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Record 20 -->
+            <div class="placement-record">
+                <div class="record-header">
+                    <div class="student-photo">
+                        <img src="/Assets/033.jpg" alt="Aditi Jaiswal">
+                    </div>
+                    <div class="student-info">
+                        <h3>Aditi Jaiswal</h3>
+                        <p class="roll-no">MCA/45004/24</p>
+                    </div>
+                </div>
+                <div class="record-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Company:</span>
+                        <span class="detail-value">Targeticon Digital Services</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Position:</span>
+                        <span class="detail-value">Python Developer</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Type:</span>
+                        <span class="detail-value badge internship">Internship</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Duration:</span>
+                        <span class="detail-value">6 Months</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Stipend:</span>
+                        <span class="detail-value highlight">₹9,000/month</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Note -->
+        <div class="placement-note">
+            <p><i class="fas fa-info-circle"></i> All 20 placement records displayed. For more details, contact placement office.</p>
+        </div>
+    </div>
+</section>
 
     <!-- Recruiters Section -->
     <section id="recruiters" class="recruiters">
